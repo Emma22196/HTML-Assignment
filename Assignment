@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+content="width = device-width,
+initial-scale = 1.0">
+    <title></title>
+        <style>
+
+            body header{
+                
+                background: url(./Snapshot/1.jpg) top;
+                
+                height: 40vh;
+                
+            }
+
+
+            .banner{
+                height: 40vh;
+                z-index: 100;
+                background-color: rgba(0, 0, 0, 60%);
+            }
+
+            .bannerNav{
+                /* display: flex;
+                align-items: center; */
+                padding: 20px;
+            }
+
+            .bannerNav p{
+                float: left;
+                color: white;
+                font-size: 10px;
+            }
+
+            .bannerNav .btn{
+                /* margin-left: 1000px; */
+                float: right;
+                padding: 4px 12px;
+                background-color: red;
+                color: white;
+                font-size: 12px;
+                border-radius: 10px;
+                font-weight: 600;
+                border: none;
+            
+            }
+
+            .nd-part{
+                display: flex;
+                justify-content: flex-start;
+                flex-direction: column;
+                align-items: center;
+                /* padding-left: 300px;
+                padding-right: 300px; */
+
+            }
+
+            .h1{
+                color: red;
+                font-weight: 600;
+                font-size: 30px;
+                text-align: center;
+
+            }
+
+            .line{
+                color: white;
+                font-size: medium;
+                width: 50%;
+                
+            }
+
+            
+          
+
+            .download-button{
+                margin-top: 5px;
+                padding: 6px 20px;
+                background-color: deepskyblue;
+                color:white;
+                font-weight: 600;
+                /* text-align: center; */
+                font-size: 14px;
+                border: none;
+                margin-left: -400px;
+            
+                border-radius: 5px;
+                cursor: pointer;
+            }
+
+            h2{
+                font-size: 2em;
+                margin: 10px 0;
+                text-align: center;
+
+            }
+
+            .gallery-button{
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: center;
+                
+                gap: 10px;
+                margin-top: 20px;
+            }
+
+            .gallery-button button{
+                padding: 10px 15px;
+                background-color: white;
+                color: lightseagreen;
+                border: 2px lightseagreen;
+                border-radius: 25px;
+                border-width: 2px;
+                cursor: pointer;
+                
+            }
+
+            .Image-row{
+                display:  flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+                margin-top: 20px;
+            }
+
+            .Image-row img{ 
+                width: 150px;
+                height: auto;
+                border: none;
+                border-radius: none;
+            }
+
+           
+
+        </style>
+    
+</head>
+<body>
+    <header>
+
+        <div class="banner">
+            <div class="bannerNav">
+                <p>Bootstrap Gallery</p>
+
+                <button class="btn">Download Now</button>
+            </div>
+
+            <div class="nd-part">
+
+                <h1 style="color: white; position: relative; left: -130px;">HTML Image Gallery</h1>
+                <div class="line">Right here you can see by yourself how exactly the HTML Image Gallery should 
+                look like. Feel free to use these awesome, super customizable and mobile-friendly galleries 
+                to make your website more interesting and appealing for its visitors.</p>
+                </div>
+                <button class ="download-button" style="left: -130px;">Download Gallery</button>
+
+            </div>
+        </div>
+    </header>
+
+    <h2> 
+    <strong>
+        Put in use some tags
+    </strong>
+    </h2>
+ <div class = "gallery-button">
+    <button onclick="showAll()">All</button>
+    <button onclick="showBeautiful()">Beautiful</button>
+    <button onclick="Showcreative(3)">Creative</button>
+    <button onclick="ShowCool(4)">Cool</button>
+    <button onclick="ShowAwesome(5)">Awesome</button>
+
+ </div>
+<div class="Image-row" id="Image1">
+    <img src="./Snapshot/3.jpg" alt="image 1">
+    <img src="./Snapshot/2.jpg" alt="image 2">
+    <img src="./Snapshot/4.jpg" alt="image 3">
+    <img src="./Snapshot/6.jpg" alt="image 4">
+</div>
+
+<div class="Image-row" id="Image2">
+    <img src="./Snapshot/5.jpg" alt="image 5">
+    <img src="./Snapshot/8.jpg" alt="image 6">
+    <img src="./Snapshot/10.jpg"alt="image 7">
+    <img src="./Snapshot/7.jpg" alt="image 8">
+
+</div>
+<script>
+    function downloadGallery(){
+        alert("downloading gallery.....");
+    }
+    function showAll(){
+        showimagesInrow('Image1');
+        showimagesInrow('Image2');
+        } ;
+            
+    function showBeautiful(buttonNum){
+        resetImages();
+        if (buttonNum===3){
+            showimagesInrow('Image-row',2);
+            showimagesInrow('Image-row2',1)
+        } else if (buttonNum===4){
+            showimagesInrow('Image1',1);
+            showimagesInrow('Image2',2);
+        }else if (buttonNum===5){
+            showimagesInrow('Image1',2);
+            showimagesInrow('Image2',2);
+        
+        }
+
+    }  
+    function showimagesInrow(rowId, count = 4){
+    var images = document.querySelectorAll('#' + rowId + ' img');
+    for (var i = 0; i < count && i < images.length; i++){
+        images[i].style.display ='block';
+    }
+}
+
+
+
+    
+    function resetImages(){
+        var allImages = document.querySelectorAll('.image-row img');
+        allImages.forEach(function(img){
+            img.style.display='none';
+        })
+    }
+ </script>
+
+</body>
+</html>
